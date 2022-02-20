@@ -5,12 +5,15 @@ const { formRoutes } = require('./routes/');
 
 const app = express();
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
 /* Middlewares (opcional) */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 /* Rutas */
-    app.use('/api/v1', formRoutes);
+    app.use(formRoutes);
 
 /* Poner el servidor a escuchar */
 app.listen(3000,()=> {
